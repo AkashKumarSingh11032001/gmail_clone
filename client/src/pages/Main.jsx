@@ -7,7 +7,7 @@ const Main = () => {
     <>
       <Header />
       <SideBar />
-      <div>Display mail</div>
+      <div>Display mails</div>
     </>
   );
 };
