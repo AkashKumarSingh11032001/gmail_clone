@@ -39,25 +39,31 @@ const Header = () => {
     <>
       <StyledAppBar position="static">
         <Toolbar>
+          {/* Component 1 */}
           <MenuIcon color="action" />
+          
+          {/* Component 2 */}
           <img
             src={gmailLogo}
             alt="logo"
             style={{ width: 110, marginLeft: 15 }}
           />
+           
+          {/* Component 3 */}
           <SearchWrapper>
             <Search color="action"/>
             <InputBase placeholder="Search mail"/>
             <Tune color="action"/>
           </SearchWrapper>
 
+          {/* Component 4 */}
           <OptionsWrapper>
             <HelpOutlineOutlined color="action"/>
             <SettingsOutlined color="action" />
             <AppsOutlined color="action" />
             <AccountCircleOutlined color="action" />
           </OptionsWrapper>
-          
+
         </Toolbar>
       </StyledAppBar>
     </>
