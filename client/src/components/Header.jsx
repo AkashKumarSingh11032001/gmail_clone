@@ -34,13 +34,13 @@ const OptionsWrapper = styled(Box)`
     }
 `
 
-const Header = () => {
+const Header = ({toggleDrawer}) => {
   return (
     <>
       <StyledAppBar position="static">
         <Toolbar>
           {/* Component 1 */}
-          <MenuIcon color="action" />
+          <MenuIcon color="action" onClick={toggleDrawer}/>
           
           {/* Component 2 */}
           <img
