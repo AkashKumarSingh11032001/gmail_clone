@@ -5,6 +5,8 @@ import { CreateOutlined } from "@mui/icons-material";
 import { SIDEBAR_DATA } from "../config/sidebar.config.js";
 import { NavLink, useParams } from "react-router-dom";
 import { routes } from "../routes/routes";
+import ComposeMail from "./ComposeMail.jsx";
+import { useState } from 'react';
 
 const ComposeButton = styled(Button)`
   background: #c2e7ff;
@@ -30,11 +32,17 @@ const Container = styled(Box)({
 )
 
 const SideBarContent = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const onComposeClick = () =>{
+    setOpenDialog(true);
+  }
+
   const { type } = useParams();
   return (
     <Container>
       <Box>
-        <ComposeButton>
+        <ComposeButton onClick={()=> onComposeClick()}>
           <CreateOutlined style={{ marginRight: 10 }} />
           Compose
         </ComposeButton>
@@ -57,6 +65,7 @@ const SideBarContent = () => {
           </ListItem>
         ))}
       </List>
+      <ComposeMail openDialog={openDialog} setOpenDialog={setOpenDialog} />
     </Container>
   );
 };
