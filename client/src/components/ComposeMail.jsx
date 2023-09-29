@@ -112,7 +112,7 @@ const ComposeMail = ({ openDialog, setOpenDialog }) => {
       </RecipientWrapper>
       <TextField
         multiline
-        rows={20}
+        rows={14}
         sx={{ "& .MuiOutlinedInput-notchedOutline": { border: "none" } }}
         name="body"
         onChange={(e) => onValueChange(e)}
