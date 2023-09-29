@@ -87,21 +87,21 @@ const ComposeMail = ({ openDialog, setOpenDialog }) => {
       }).then((message) => alert(message));
     }
     const payload = {
-      to : data.to,
-      from : "akashkumarsingh11032001@gmail.com",
-      subject : data.subject,
-      body : data.body,
+      to: data.to,
+      from: "akashkumarsingh11032001@gmail.com",
+      subject: data.subject,
+      body: data.body,
       date: new Date(),
-      image: '',
-      name: 'Akash Kumar Singh',
+      image: "",
+      name: "Akash Kumar Singh",
       starred: false,
-      type: 'sent'
-  }
+      type: "sent",
+    };
     sendEmailService.call(payload);
-    if(!sendEmailService.error){
+    if (!sendEmailService.error) {
       setOpenDialog(false);
       setData({});
-    }else{
+    } else {
       alert("Something went wrong");
     }
     setOpenDialog(false);
