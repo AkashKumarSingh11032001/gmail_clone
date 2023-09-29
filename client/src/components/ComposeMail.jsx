@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import { Close, DeleteOutline } from "@mui/icons-material";
 import { useState } from "react";
+import useApi from "../hooks/useApi";
+import { API_URLS } from "../services/api.urls";
 
 const dialogStyle = {
   height: "90%",
@@ -59,6 +61,7 @@ const Footer = styled(Box)`
 
 const ComposeMail = ({ openDialog, setOpenDialog }) => {
   const [data, setData] = useState({});
+  const sendEmailService = useApi(API_URLS.saveSentEmail);
 
   const closeComposeMail = (e) => {
     e.preventDefault();
@@ -82,6 +85,24 @@ const ComposeMail = ({ openDialog, setOpenDialog }) => {
         Subject: data.subject,
         Body: data.body,
       }).then((message) => alert(message));
+    }
+    const payload = {
+      to: data.to,
+      from: "akashkumarsingh11032001@gmail.com",
+      subject: data.subject,
+      body: data.body,
+      data: new Date(),
+      image: "",
+      name: "Akash Singh",
+      starred: false,
+      type: "sent",
+    };
+    sendEmailService.call(payload);
+    if(!sendEmailService.error){
+      setOpenDialog(false);
+      setData({});
+    }else{
+      alert("Something went wrong");
     }
     setOpenDialog(false);
   };
