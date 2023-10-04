@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react'
 import { useOutletContext } from "react-router-dom";
 
-const Emails = () => {
+const ViewEmail = () => {
   const { openDrawer } = useOutletContext();
+
   return (
     <div
       style={
         openDrawer ? { marginLeft: 250, width: "100%" } : { width: "100%" }
       }
     >
-      Emails
+      Views Emails
     </div>
-  );
-};
+  )
+}
 
-export default Emails;
+export default ViewEmail

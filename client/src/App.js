@@ -1,14 +1,10 @@
 import "./App.css";
+import { Suspense, lazy } from "react";
+import { Navigate, Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import { routes } from "./routes/routes";
-import ErrorComponent from "./components/common/ErrorComponent"
-import {
-  Navigate,
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
+import SuspenseLoader from './components/common/SuspenseLoader';
 
+const ErrorComponent = lazy(() => import('./components/common/ErrorComponent'));
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -38,7 +34,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<SuspenseLoader />}>
+        <RouterProvider router={router} />
+    </Suspense>
+  );
 }
 
 export default App;

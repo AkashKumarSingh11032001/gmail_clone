@@ -2,13 +2,13 @@ import { lazy } from "react";
 
 const Main = lazy(() => import('../pages/Main'));
 const Emails = lazy(() => import('../components/Emails'));
-// const ViewEmail = lazy(() => import('../components/ViewEmail'));
+const ViewEmail = lazy(() => import('../components/ViewEmail'));
 
 // import Main from "../pages/Main";
 // import Emails from "../components/Emails";
 // const Main = "";
 // const Emails = "";
-const ViewEmail = "";
+// const ViewEmail = "";
 
 const routes = {
   main: {
@@ -19,13 +19,13 @@ const routes = {
     path: "/emails",
     element: Emails,
   },
-  invalid: {
-    path: "/*",
-    element: Emails,
-  },
   view: {
     path: "/view",
     element: ViewEmail,
+  },
+  invalid: {
+    path: "/*",
+    element: Emails,
   },
 };
 
