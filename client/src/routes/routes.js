@@ -1,11 +1,13 @@
-import { lazy } from "react";
+// import { lazy } from "react";
 
 // const Main = lazy(() => import('../pages/Main'));
 // const Emails = lazy(() => import('../components/Emails'));
 // const ViewEmail = lazy(() => import('../components/ViewEmail'));
 
-const Main = "";
-const Emails = "";
+import Main from "../pages/Main";
+import Emails from "../components/Emails";
+// const Main = "";
+// const Emails = "";
 const ViewEmail = "";
 
 const routes = {
