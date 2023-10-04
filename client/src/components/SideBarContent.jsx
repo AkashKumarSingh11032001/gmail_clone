@@ -4,7 +4,7 @@ import { Button, List, ListItem, styled } from "@mui/material";
 import { CreateOutlined } from "@mui/icons-material";
 import { SIDEBAR_DATA } from "../config/sidebar.config.js";
 import { NavLink, useParams } from "react-router-dom";
-import { routes } from "../routes/routes";
+// import { routes } from "../routes/routes";
 import ComposeMail from "./ComposeMail.jsx";
 import { useState } from 'react';
 
