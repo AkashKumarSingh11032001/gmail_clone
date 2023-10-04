@@ -62,10 +62,31 @@ const Footer = styled(Box)`
 const ComposeMail = ({ openDialog, setOpenDialog }) => {
   const [data, setData] = useState({});
   const sendEmailService = useApi(API_URLS.saveSentEmail);
+  const saveDraftService = useApi(API_URLS.saveDraftEmails);
+
 
   const closeComposeMail = (e) => {
     e.preventDefault();
-    setOpenDialog(false);
+
+    const payload = {
+      to: data.to,
+      from: "codeforinterview03@gmail.com",
+      subject: data.subject,
+      body: data.body,
+      date: new Date(),
+      image: "",
+      name: "Code for Interview",
+      starred: false,
+      type: "drafts",
+    };
+
+    saveDraftService.call(payload);
+
+    if (!saveDraftService.error) {
+      setOpenDialog(false);
+      setData({});
+    } else {
+    }
   };
   const config = {
     Host: "smtp.elasticemail.com",
