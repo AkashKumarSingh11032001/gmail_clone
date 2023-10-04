@@ -61,7 +61,7 @@ const Footer = styled(Box)`
 
 const ComposeMail = ({ openDialog, setOpenDialog }) => {
   const [data, setData] = useState({});
-  const sendEmailService = useApi(API_URLS.saveSentEmail);
+  const sendEmailService = useApi(API_URLS.saveSentEmails);
   const saveDraftService = useApi(API_URLS.saveDraftEmails);
 
 

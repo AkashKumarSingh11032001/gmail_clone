@@ -14,15 +14,14 @@ const Emails = () => {
   const getEmailsService = useApi(API_URLS.getEmailFromType);
   const deleteEmailsService = useApi(API_URLS.deleteEmails);
   const moveEmailsToBin = useApi(API_URLS.moveEmailsToBin);
-  // const deleteEmailsService = "";
-  // const moveEmailsToBin = "";
-
-  useEffect(() => {
-    getEmailsService.call({}, type);
-  }, [type]);
 
   const [starredEmail, setStarredEmail] = useState(false);
   const [selectedEmails, setSelectedEmails] = useState([]);
+
+  useEffect(() => {
+    getEmailsService.call({}, type);
+  }, [type,starredEmail]);
+
 
   const selectAllEmails = (e) => {
     if (e.target.checked) {

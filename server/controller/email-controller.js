@@ -53,7 +53,9 @@ export const deleteEmails = async (request, response) => {
 
 export const moveEmailsToBin = async (request, response) => {
     try {
-        await Email.updateMany({ _id: { $in: request.body }}, { $set: { bin: true, starred: false, type: '' }});
+        await Email.updateMany({ _id: { $in: request.body.payload }}, { $set: { bin: true, starred: false, type: '' }});
+        response.status(200).json("email deleted successfully");   
+
     } catch (error) {
         response.status(500).json(error.message);   
     }
