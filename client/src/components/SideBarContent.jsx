@@ -29,7 +29,7 @@ const Container = styled(Box)({
       color: 'inherit'
     },
   },
-  "& > ul > li > svg": {
+  "& > ul > a > li > svg": {
     marginRight: 20,
   },
 });
